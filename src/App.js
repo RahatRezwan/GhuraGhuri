@@ -1,9 +1,10 @@
+import { RouterProvider } from "react-router-dom";
+import { routes } from "./routes/routes";
+
 function App() {
    return (
       <div className="App">
-         <h1 className="text-5xl font-extrabold text-primary text-center mt-52">
-            Hello There! Welcome to ghuraghuri
-         </h1>
+         <RouterProvider router={routes} />
       </div>
    );
 }

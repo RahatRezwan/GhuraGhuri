@@ -8,31 +8,36 @@ const Navbar = () => {
          <div className="navbar bg-transparent container absolute top-0 px-24 mx-auto">
             <div className="flex-1">
                <Link className="text-xl">
-                  <img src={logo} alt="" className="w-[150px]" />
+                  <img src={logo} alt="" className="w-[120px]" />
                </Link>
             </div>
             <div className="flex-none">
                <ul className="menu menu-horizontal p-0">
                   <li>
-                     <Link className="hover:text-primary" to="/">
+                     <Link className="hover:text-black text-warning" to="/">
                         Home
                      </Link>
                   </li>
                   <li>
-                     <Link className="hover:text-primary" to="/spots">
+                     <Link className="hover:text-black text-warning" to="/spots">
                         Travel Spots
+                     </Link>
+                  </li>
+                  <li>
+                     <Link
+                        className="hover:text-warning btn btn-outline btn-warning mx-3"
+                        to="/login"
+                     >
+                        Login
+                     </Link>
+                  </li>
+                  <li>
+                     <Link className="text-black btn  btn-warning mr-3" to="/register">
+                        Register
                      </Link>
                   </li>
                </ul>
 
-               <div className="form-control">
-                  <input
-                     type="text"
-                     name="text"
-                     placeholder="Search"
-                     className="input input-bordered"
-                  />
-               </div>
                <div className="dropdown dropdown-end">
                   <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
                      <div className="w-10 rounded-full">

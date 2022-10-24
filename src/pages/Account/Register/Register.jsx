@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { FaGoogle, FaGithub, FaTwitter } from "react-icons/fa";
 import background from "../../../background.jpg";
 import { AuthContext } from "../../../context/AuthProvider";
+import toast from "react-hot-toast";
 
 const Register = () => {
    const { createNewUser, loginWithGoogle } = useContext(AuthContext);
@@ -23,8 +24,10 @@ const Register = () => {
             const user = result.user;
             console.log(user);
             form.reset();
+            const msg = "your account have been created successfully!";
+            toast.success(msg);
          })
-         .catch((e) => console.log(e));
+         .catch((e) => toast.error(e.code.slice(5)));
    };
 
    /* Google Sign In */
@@ -34,7 +37,7 @@ const Register = () => {
             const user = result.user;
             console.log(user);
          })
-         .catch((e) => console.log(e));
+         .catch((e) => toast.error(e.code));
    };
 
    return (

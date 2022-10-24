@@ -50,7 +50,6 @@ const Header = () => {
                      }}
                      grabCursor={true}
                      centeredSlides={true}
-                     loop={true}
                      slidesPerView={3}
                      coverflowEffect={{
                         rotate: 50,

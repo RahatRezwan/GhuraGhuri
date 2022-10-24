@@ -5,6 +5,7 @@ import Profile from "../pages/Account/Profile/Profile";
 import Register from "../pages/Account/Register/Register";
 import Booking from "../pages/Booking/Booking";
 import Home from "../pages/Home/Home";
+import Places from "../pages/Places/Places";
 
 export const routes = createBrowserRouter([
    {
@@ -30,6 +31,11 @@ export const routes = createBrowserRouter([
          {
             path: "/profile",
             element: <Profile />,
+         },
+         {
+            path: "/spots",
+            element: <Places />,
+            loader: async () => fetch("http://localhost:5000/places"),
          },
          {
             path: "/booking/:id",

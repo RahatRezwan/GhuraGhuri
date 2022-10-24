@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from "react";
 import Hero from "../Hero/Hero";
-import { Swiper, SwiperSlide } from "swiper/react";
-import { Pagination, EffectCoverflow, Navigation } from "swiper";
+import { Swiper, SwiperSlide, useSwiper } from "swiper/react";
+import { EffectCoverflow, Navigation } from "swiper";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 import { Link } from "react-router-dom";
+import { HiArrowCircleLeft, HiArrowCircleRight } from "react-icons/hi";
 
 const Header = () => {
    const [places, setPlaces] = useState([]);
@@ -42,11 +43,14 @@ const Header = () => {
             <div className="w-[55%]">
                {
                   <Swiper
-                     swiper
                      effect={"coverflow"}
+                     navigation={{
+                        nextEl: ".button-next",
+                        prevEl: ".button-prev",
+                     }}
                      grabCursor={true}
                      centeredSlides={true}
-                     pagination={true}
+                     loop={true}
                      slidesPerView={3}
                      coverflowEffect={{
                         rotate: 50,
@@ -55,7 +59,7 @@ const Header = () => {
                         modifier: 1,
                         slideShadows: true,
                      }}
-                     modules={[EffectCoverflow, Pagination, Navigation]}
+                     modules={[EffectCoverflow, Navigation]}
                      className="mySwiper"
                   >
                      {places.map((place, index) => (
@@ -66,6 +70,14 @@ const Header = () => {
                   </Swiper>
                }
             </div>
+         </div>
+         <div className="flex justify-center gap-3 absolute bottom-5 left-1/2 right-1/2">
+            <button className="button-prev">
+               <HiArrowCircleLeft className="text-4xl text-warning" />
+            </button>
+            <button className="button-next">
+               <HiArrowCircleRight className="text-4xl text-warning" />
+            </button>
          </div>
       </div>
    );
